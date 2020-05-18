@@ -5,7 +5,8 @@ $ cat /etc/nixos/configuration.nix
 { config, pkgs, ... }:
 
 let
-  ethNix = import /home/eth/src/nix;
+  ethNixLocal = import /home/eth/src/nix;
+  ethNix = import ( builtins.fetchGit { url = "https://github.com/ethulhu/nix"; } );
 {
   imports = [
     ./hardware-configuration.nix
