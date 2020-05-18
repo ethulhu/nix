@@ -6,11 +6,18 @@ $ cat /etc/nixos/configuration.nix
 
 let
   ethNixLocal = import /home/eth/src/nix;
-  ethNix = import ( builtins.fetchGit { url = "https://github.com/ethulhu/nix"; } );
-{
+  ethNixRemote = import ( builtins.fetchGit { url = "https://github.com/ethulhu/nix"; } );
+
+  ethNix = ethNixRemote;
+
+in {
   imports = [
     ./hardware-configuration.nix
     ethNix.modules
+  ];
+
+  nixpkgs.overlays = [
+    ethNix.overlays;
   ];
 
   eth.keyboard.enable = true;
