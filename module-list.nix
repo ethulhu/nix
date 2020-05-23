@@ -1,8 +1,9 @@
 [
-  ./modules/keyboard.nix
   ./modules/helix-player.nix
+  ./modules/keyboard.nix
   ./modules/linode.nix
   ./modules/overlays.nix
+  ./modules/services/snapclient.nix
   ./modules/upmpdcli.nix
   ./modules/users.nix
   ./modules/yubikey.nix
