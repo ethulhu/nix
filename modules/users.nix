@@ -6,6 +6,7 @@ let
 
   defaultPackages = with pkgs; [
     direnv
+    dnsutils
     killall
     tmux
     vim
