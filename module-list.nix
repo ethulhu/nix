@@ -1,5 +1,6 @@
 [
   ./modules/keyboard.nix
+  ./modules/helix-player.nix
   ./modules/linode.nix
   ./modules/overlays.nix
   ./modules/upmpdcli.nix
