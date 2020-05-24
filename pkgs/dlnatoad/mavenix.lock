@@ -2763,7 +2763,6 @@
   "name": "dlnatoad-1-SNAPSHOT",
   "remotes": {
     "4thline.org-repo": "http://4thline.org/m2",
-    "central": "https://repo.maven.apache.org/maven2",
     "repo.jenkins-ci.org": "https://repo.jenkins-ci.org/public/"
   },
   "submodules": [
