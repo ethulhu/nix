@@ -5,6 +5,10 @@ let
 
   cfg = config.eth.services.mosquitto;
 
+  systemdDirectoryName = "mosquitto";
+  stateDirectory = "/var/lib/${systemdDirectoryName}";
+  runtimeDirectory = "/run/${systemdDirectoryName}";
+
   mosquittoConf = pkgs.writeText "mosquitto.conf" ''
     ${optionalString cfg.mqtt.enable ''
       listener ${toString cfg.mqtt.port} ${optionalString (cfg.mqtt.host != "") cfg.mqtt.host}
@@ -15,7 +19,10 @@ let
       protocol websockets
     ''}
 
-    ${optionalString cfg.persistence "persistence true"}
+    ${optionalString cfg.persistence ''
+      persistence true
+      persistence_location ${stateDirectory}
+    ''}
   '';
 
 in {
@@ -67,10 +74,11 @@ in {
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         DynamicUser = true;
-        RuntimeDirectory = "mosquitto";
-        StateDirectory = "mosquitto";
+        RuntimeDirectory = systemdDirectoryName;
+        StateDirectory = systemdDirectoryName;
         ExecStart = "${pkgs.mosquitto}/bin/mosquitto -c ${mosquittoConf}";
         NoNewPrivileges = true;
+        ProtectHome = true;
         ProtectKernelTunables = true;
         ProtectControlGroups = true;
         ProtectKernelModules = true;

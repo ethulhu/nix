@@ -32,6 +32,7 @@ in {
         Group = "audio";
         ExecStart = "${pkgs.snapcast}/bin/snapclient --hostID ${escapeShellArg cfg.hostID}";
         NoNewPrivileges = true;
+        ProtectHome = true;
         ProtectKernelTunables = true;
         ProtectControlGroups = true;
         ProtectKernelModules = true;
