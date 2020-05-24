@@ -5,7 +5,7 @@
   ./modules/overlays.nix
   ./modules/services/mosquitto.nix
   ./modules/services/snapclient.nix
-  ./modules/upmpdcli.nix
+  ./modules/services/upmpdcli.nix
   ./modules/users.nix
   ./modules/yubikey.nix
 ]

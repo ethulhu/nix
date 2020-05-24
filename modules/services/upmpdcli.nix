@@ -2,7 +2,7 @@
 with lib;
 
 let
-  cfg = config.services.upmpdcli;
+  cfg = config.eth.services.upmpdcli;
 
   cacheDir = "upmpdcli";
 
@@ -20,12 +20,12 @@ let
   '';
 
 in {
-  options.services.upmpdcli = {
+  options.eth.services.upmpdcli = {
     enable = mkEnableOption "Run upmpdcli server";
 
     friendlyName = mkOption {
       type = types.str;
-      default = "UpMpd";
+      default = "UpMpd (${config.networking.hostName})";
       description = "Friendly Name used for UPnP discovery.";
     };
 
@@ -54,10 +54,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      pkgs.eth.upmpdcli
-    ];
-
     systemd.services.upmpdcli = {
       enable = true;
       description = "";
@@ -66,12 +62,20 @@ in {
       wantedBy = [ "multi-user.target" ];
       path = [ pkgs.openssl pkgs.python3 ];
       serviceConfig = {
-        DynamicUser = "yes";
+        DynamicUser = true;
+
         CacheDirectory = cacheDir;
+
         Type = "simple";
         ExecStart="${pkgs.eth.upmpdcli}/bin/upmpdcli -c ${upmpdConf}";
         Restart = "always";
         RestartSec = "1min";
+
+        NoNewPrivileges = true;
+        ProtectHome = true;
+        ProtectKernelTunables = true;
+        ProtectControlGroups = true;
+        ProtectKernelModules = true;
       };
     };
   };
