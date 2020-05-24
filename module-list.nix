@@ -3,6 +3,7 @@
   ./modules/linode.nix
   ./modules/overlays.nix
   ./modules/programs/dwm.nix
+  ./modules/services/dlnatoad.nix
   ./modules/services/helix-player.nix
   ./modules/services/mosquitto.nix
   ./modules/services/snapclient.nix

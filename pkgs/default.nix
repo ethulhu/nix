@@ -10,6 +10,8 @@ pkgs: super: {
 
     helix = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/helix"; rev = "142be94fb81ee3ff7aba1694836fd45330d22862"; } ) {};
 
+    dlnatoad = pkgs.callPackage ./dlnatoad {};
+
     libnpupnp = pkgs.callPackage ./libnpupnp { };
     libupnpp  = pkgs.callPackage ./libupnpp  { };
     upmpdcli  = pkgs.callPackage ./upmpdcli  { };
