@@ -3,15 +3,15 @@ with lib;
 
 let
 
-  cfg = config.services.helix-player;
-  helixPackage = pkgs.eth.helix;
+  cfg = config.eth.services.helix-player;
 
-  runtimeDirectory = "helix-player";
-  socket = "/run/${runtimeDirectory}/listen.sock";
+  systemdDirectoryName = "helix-player";
+  runtimeDirectory = "/run/${systemdDirectoryName}";
+  socket = "${runtimeDirectory}/listen.sock";
 
 in {
 
-  options.services.helix-player = {
+  options.eth.services.helix-player = {
 
     enable = mkEnableOption "Whether to enable helix-player";
 
@@ -26,11 +26,7 @@ in {
 
   config = mkIf cfg.enable {
 
-    services.helix-player.socket = socket;
-
-    environment.systemPackages = [
-      helixPackage
-    ];
+    eth.services.helix-player.socket = socket;
 
     systemd.services.helix-player = {
       enable = true;
@@ -39,10 +35,18 @@ in {
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
-        DynamicUser = "yes";
+        DynamicUser = true;
         Group = config.services.nginx.group;
-        RuntimeDirectory = "${runtimeDirectory}";
-        ExecStart = "${helixPackage}/bin/helix-player -socket ${socket}";
+
+        RuntimeDirectory = systemdDirectoryName;
+
+        ExecStart = "${pkgs.eth.helix}/bin/helix-player -socket ${socket}";
+
+        NoNewPrivileges = true;
+        ProtectHome = true;
+        ProtectKernelTunables = true;
+        ProtectControlGroups = true;
+        ProtectKernelModules = true;
       };
     };
   };
