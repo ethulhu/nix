@@ -7,6 +7,7 @@
   ./modules/services/helix-player.nix
   ./modules/services/mosquitto.nix
   ./modules/services/snapclient.nix
+  ./modules/services/ssh.nix
   ./modules/services/upmpdcli.nix
   ./modules/users.nix
   ./modules/yubikey.nix
