@@ -3,6 +3,7 @@
   ./modules/linode.nix
   ./modules/overlays.nix
   ./modules/programs/dwm.nix
+  ./modules/services/catbus-bridge-snapcast.nix
   ./modules/services/dlnatoad.nix
   ./modules/services/helix-player.nix
   ./modules/services/mosquitto.nix

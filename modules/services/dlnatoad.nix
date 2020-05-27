@@ -28,12 +28,13 @@ in {
       wants = [ "network.target" ];
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
+      path = [ pkgs.ffmpeg ];
       serviceConfig = {
         DynamicUser = true;
 
         CacheDirectory = systemdDirectoryName;
 
-        ExecStart = "${pkgs.eth.dlnatoad}/bin/dlnatoad ${concatStringsSep " " cfg.directories} --db ${cacheDirectory}/db --thumbs ${cacheDirectory}";
+        ExecStart = "${pkgs.eth.dlnatoad}/bin/dlnatoad ${concatStringsSep " " cfg.directories} --db ${cacheDirectory}/db --thumbs ${cacheDirectory} --verbose";
 
         NoNewPrivileges = true;
         ProtectHome = true;
