@@ -10,6 +10,6 @@
   ./services/snapclient.nix
   ./services/ssh.nix
   ./services/upmpdcli.nix
-  ./users.nix
+  ./users/eth.nix
   ./yubikey.nix
 ]
