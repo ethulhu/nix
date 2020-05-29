@@ -10,7 +10,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.eth.dwm ];
+    environment.systemPackages = with pkgs; [
+      dmenu
+      eth.dwm
+    ];
     services.xserver.windowManager.session = singleton {
       name = "dwm";
       start = ''
