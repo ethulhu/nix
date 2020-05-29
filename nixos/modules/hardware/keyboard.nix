@@ -2,15 +2,15 @@
 with lib;
 
 let 
-  cfg = config.eth.keyboard;
+  cfg = config.eth.hardware.keyboard;
 
 in {
 
-  options.eth.keyboard = {
-    enable = mkEnableOption "Eth's keyboard preferences";
+  options.eth.hardware.keyboard = {
+    enableColemak = mkEnableOption "Eth's keyboard preferences";
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enableColemak {
 
     console.useXkbConfig = true;
 
