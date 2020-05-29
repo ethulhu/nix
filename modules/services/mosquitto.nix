@@ -21,7 +21,7 @@ let
 
     ${optionalString cfg.persistence ''
       persistence true
-      persistence_location ${stateDirectory}
+      persistence_location ${stateDirectory}/
     ''}
   '';
 
