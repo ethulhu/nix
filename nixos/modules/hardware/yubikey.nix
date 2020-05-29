@@ -2,11 +2,11 @@
 with lib;
 
 let 
-  cfg = config.eth.yubikey;
+  cfg = config.eth.hardware.yubikey;
 
 in {
 
-  options.eth.yubikey = {
+  options.eth.hardware.yubikey = {
     enable = mkEnableOption "Set up Yubikey";
   };
 
