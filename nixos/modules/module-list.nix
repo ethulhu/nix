@@ -1,6 +1,7 @@
 [
-  ./keyboard.nix
-  ./linode.nix
+  ./hardware/keyboard.nix
+  ./hardware/linode.nix
+  ./hardware/yubikey.nix
   ./overlays.nix
   ./programs/dwm.nix
   ./services/catbus-bridge-snapcast.nix
@@ -11,5 +12,4 @@
   ./services/ssh.nix
   ./services/upmpdcli.nix
   ./users/eth.nix
-  ./yubikey.nix
 ]
