@@ -7,7 +7,7 @@ let
   mozilla = import (builtins.fetchTarball
     "https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz");
 
-  eth = import ../pkgs;
+  eth = import ../../pkgs;
 
 in {
   options.eth.overlays = {

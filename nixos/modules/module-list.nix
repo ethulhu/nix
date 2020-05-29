@@ -1,0 +1,15 @@
+[
+  ./keyboard.nix
+  ./linode.nix
+  ./overlays.nix
+  ./programs/dwm.nix
+  ./services/catbus-bridge-snapcast.nix
+  ./services/dlnatoad.nix
+  ./services/helix-player.nix
+  ./services/mosquitto.nix
+  ./services/snapclient.nix
+  ./services/ssh.nix
+  ./services/upmpdcli.nix
+  ./users.nix
+  ./yubikey.nix
+]

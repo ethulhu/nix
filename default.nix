@@ -1,6 +1,6 @@
 {
   modules = {
-    require = import ./module-list.nix;
+    require = import ./nixos/modules/module-list.nix;
   };
 
   overlays = import ./pkgs;
