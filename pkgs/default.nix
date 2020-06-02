@@ -8,7 +8,7 @@ pkgs: super: {
     catbus-snapcast = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/catbus-snapcast"; } ) {};
     catbus-web-ui   = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/catbus-web-ui";   } ) {};
 
-    helix = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/helix"; rev = "dd13cd32ec89503bc1244d4f307452faba1ca7ba"; } ) {};
+    helix = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/helix"; rev = "eb0335d0d1810187ea054c5960e11bd2e90f771b"; } ) {};
 
     dlnatoad = pkgs.callPackage ./dlnatoad {};
 

@@ -40,6 +40,7 @@ in {
       wants = [ "network.target" ];
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
+      path = [ pkgs.ffmpeg ];
       serviceConfig = {
         DynamicUser = true;
 
