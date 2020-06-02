@@ -6,6 +6,7 @@
   ./programs/dwm.nix
   ./services/catbus-bridge-snapcast.nix
   ./services/dlnatoad.nix
+  ./services/helix-directory.nix
   ./services/helix-player.nix
   ./services/mosquitto.nix
   ./services/snapclient.nix
