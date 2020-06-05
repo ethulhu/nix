@@ -5,13 +5,17 @@ let
   cfg = config.eth.users.eth;
 
   defaultPackages = with pkgs; [
+    ag
     direnv
     dnsutils
     file
+    go
     htop
     iotop
     killall
+    moreutils
     mosh
+    rlwrap
     tmux
     vim
     wget
@@ -20,8 +24,9 @@ let
   developmentPackages = with pkgs; [
     git
     gitAndTools.tig
-    go
     goimports
+    html-tidy
+    imagemagick
     jq
     pre-commit
     python3
@@ -31,6 +36,7 @@ let
     feh
     firefox
     latest.rustChannels.stable.rust
+    mpv
     mupdf
     rxvt-unicode
     vlc
