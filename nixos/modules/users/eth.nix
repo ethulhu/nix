@@ -9,6 +9,7 @@ let
     dnsutils
     file
     htop
+    iotop
     killall
     mosh
     tmux
