@@ -1,4 +1,8 @@
 let
+  helix = builtins.fetchGit {
+    url = "https://github.com/ethulhu/helix";
+    rev = "e6af1aa7372e299ab6f50cfa916119082d1738cf";
+  };
   recipes = builtins.fetchGit {
     url = "https://github.com/ethulhu/recipes.eth.moe";
     rev = "9c370bf0cd6a06bbcfa17e3c1f42f6ac6f92ffdb";
@@ -6,6 +10,7 @@ let
 in
   pkgs: super: {
     eth = {
+      helix   = pkgs.callPackage helix   {};
       recipes = pkgs.callPackage recipes {};
 
       dwm = pkgs.callPackage ./dwm {};
@@ -13,8 +18,6 @@ in
       catbus-lifx     = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/catbus-lifx";     } ) {};
       catbus-snapcast = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/catbus-snapcast"; } ) {};
       catbus-web-ui   = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/catbus-web-ui";   } ) {};
-
-      helix = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/helix"; rev = "eb0335d0d1810187ea054c5960e11bd2e90f771b"; } ) {};
 
       dlnatoad = pkgs.callPackage ./dlnatoad {};
 
