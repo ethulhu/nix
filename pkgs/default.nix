@@ -1,7 +1,7 @@
 let
   helix = builtins.fetchGit {
     url = "https://github.com/ethulhu/helix";
-    rev = "e6af1aa7372e299ab6f50cfa916119082d1738cf";
+    rev = "5a11d335465db52cdb8430abc37f4d3463122167";
   };
   recipes = builtins.fetchGit {
     url = "https://github.com/ethulhu/recipes.eth.moe";

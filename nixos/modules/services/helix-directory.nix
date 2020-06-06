@@ -46,6 +46,9 @@ in {
 
         ExecStart = "${pkgs.eth.helix}/bin/helix-directory -friendly-name ${escapeShellArg cfg.friendlyName} -path ${escapeShellArg cfg.directory}";
 
+        Restart = "always";
+        RestartSec = "1min";
+
         NoNewPrivileges = true;
         ProtectHome = true;
         ProtectKernelTunables = true;
