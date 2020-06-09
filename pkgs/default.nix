@@ -1,7 +1,11 @@
 let
   helix = builtins.fetchGit {
     url = "https://github.com/ethulhu/helix";
-    rev = "5a11d335465db52cdb8430abc37f4d3463122167";
+    rev = "e10d1a0d38a32fd1e5971813c7c56574abecda24";
+  };
+  jackalope = builtins.fetchGit {
+    url = "https://git.sr.ht/~eth/jackalope";
+    rev = "f87cb42937a109af552a953a0e5882a81a2c343b";
   };
   recipes = builtins.fetchGit {
     url = "https://github.com/ethulhu/recipes.eth.moe";
@@ -10,8 +14,9 @@ let
 in
   pkgs: super: {
     eth = {
-      helix   = pkgs.callPackage helix   {};
-      recipes = pkgs.callPackage recipes {};
+      helix     = pkgs.callPackage helix     {};
+      jackalope = pkgs.callPackage jackalope {};
+      recipes   = pkgs.callPackage recipes   {};
 
       dwm = pkgs.callPackage ./dwm {};
 
