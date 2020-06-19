@@ -1,7 +1,23 @@
 let
+  catbus-lifx = builtins.fetchGit {
+    url = "https://github.com/ethulhu/catbus-lifx";
+    # TODO: rev = "...";
+  };
+  catbus-snapcast = builtins.fetchGit {
+    url = "https://github.com/ethulhu/catbus-snapcast";
+    # TODO: rev = "...";
+  };
+  catbus-wakeonlan = builtins.fetchGit {
+    url = "https://github.com/ethulhu/catbus-wakeonlan";
+    rev = "5b9435bff8ce11bbbf720084e27c2c6f471934f6";
+  };
+  catbus-web-ui = builtins.fetchGit {
+    url = "https://github.com/ethulhu/catbus-web-ui";
+    # TODO: rev = "...";
+  };
   helix = builtins.fetchGit {
     url = "https://github.com/ethulhu/helix";
-    rev = "e10d1a0d38a32fd1e5971813c7c56574abecda24";
+    rev = "b308ffcd9182942df93ceed7b57fe46a049aa505";
   };
   jackalope = builtins.fetchGit {
     url = "https://git.sr.ht/~eth/jackalope";
@@ -20,9 +36,10 @@ in
 
       dwm = pkgs.callPackage ./dwm {};
 
-      catbus-lifx     = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/catbus-lifx";     } ) {};
-      catbus-snapcast = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/catbus-snapcast"; } ) {};
-      catbus-web-ui   = pkgs.callPackage ( builtins.fetchGit { url = "https://github.com/ethulhu/catbus-web-ui";   } ) {};
+      catbus-lifx      = pkgs.callPackage catbus-lifx      {};
+      catbus-snapcast  = pkgs.callPackage catbus-snapcast  {};
+      catbus-wakeonlan = pkgs.callPackage catbus-wakeonlan {};
+      catbus-web-ui    = pkgs.callPackage catbus-web-ui    {};
 
       dlnatoad = pkgs.callPackage ./dlnatoad {};
 
