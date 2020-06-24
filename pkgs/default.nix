@@ -1,4 +1,8 @@
 let
+  catbus-lgtv = builtins.fetchGit {
+    url = "https://github.com/ethulhu/catbus-lgtv";
+    rev = "6184414321f7f633dbb71cf70ed336e1c42d9d9e";
+  };
   catbus-lifx = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-lifx";
     # TODO: rev = "...";
@@ -40,6 +44,7 @@ in
 
       dwm = pkgs.callPackage ./dwm {};
 
+      catbus-lgtv            = pkgs.callPackage catbus-lgtv            {};
       catbus-lifx            = pkgs.callPackage catbus-lifx            {};
       catbus-networkpresence = pkgs.callPackage catbus-networkpresence {};
       catbus-snapcast        = pkgs.callPackage catbus-snapcast        {};
