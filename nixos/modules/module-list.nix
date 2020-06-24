@@ -4,6 +4,7 @@
   ./hardware/yubikey.nix
   ./overlays.nix
   ./programs/dwm.nix
+  ./services/ambience.nix
   ./services/catbus-actuator-wakeonlan.nix
   ./services/catbus-bridge-snapcast.nix
   ./services/catbus-observer-networkpresence.nix
