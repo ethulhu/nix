@@ -5,18 +5,10 @@ let
 
   cfg = config.eth.services.catbus-actuator-wakeonlan;
 
-  configJSON = pkgs.writeText "config.json" ''
-      {
-        "mqttBroker": "tcp://${cfg.mqttBroker.host}:${toString cfg.mqttBroker.port}",
-
-        "devices": {
-          "TV": {
-            "mac": "${cfg.devices.tv.mac}",
-            "topic": "${cfg.devices.tv.topic}"
-          }
-        }
-      }
-  '';
+  configJSON = pkgs.writeText "config.json" (builtins.toJSON {
+    mqttBroker = "tcp://${cfg.mqttBroker.host}:${toString cfg.mqttBroker.port}";
+    devices = cfg.devices;
+  });
 
 in {
 
@@ -37,20 +29,23 @@ in {
       };
     };
 
-    # TODO: replace this with a proper set of option sets.
-    devices = {
-      tv = {
-        mac = mkOption {
-          type = types.str;
-          description = "The device's MAC address";
-          example = "aa:bb:cc:dd:ee:ff";
+    devices = mkOption {
+      type = types.attrsOf (types.submodule {
+        options = {
+          mac = mkOption {
+            type = types.str;
+            description = "The device's MAC address";
+            example = "aa:bb:cc:dd:ee:ff";
+          };
+          topic = mkOption {
+            type = types.str;
+            description = "MQTT topic for controlling the device";
+            example = "home/house/speakers/power";
+          };
         };
-        topic = mkOption {
-          type = types.str;
-          description = "MQTT topic for controlling the device";
-          example = "home/house/speakers/power";
-        };
-      };
+      });
+      example = { TV = { mac = "aa:bb:cc:dd:ee:ff"; topic = "home/living-room/tv/power"; }; };
+      description = "A set of devices and their MACs & controller topics.";
     };
   };
 
