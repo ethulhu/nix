@@ -3,13 +3,17 @@ let
     url = "https://github.com/ethulhu/catbus-lifx";
     # TODO: rev = "...";
   };
+  catbus-networkpresence = builtins.fetchGit {
+    url = "https://github.com/ethulhu/catbus-networkpresence";
+    rev = "da8002ab10174ccdbbd1718069b7de36afe2dc46";
+  };
   catbus-snapcast = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-snapcast";
     # TODO: rev = "...";
   };
   catbus-wakeonlan = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-wakeonlan";
-    rev = "d5b2961bd2cc474d763d72ad1c180e7358e5fd6d";
+    rev = "54d24cbc56c012f30de902c2746899ffbf9154eb";
   };
   catbus-web-ui = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-web-ui";
@@ -36,10 +40,11 @@ in
 
       dwm = pkgs.callPackage ./dwm {};
 
-      catbus-lifx      = pkgs.callPackage catbus-lifx      {};
-      catbus-snapcast  = pkgs.callPackage catbus-snapcast  {};
-      catbus-wakeonlan = pkgs.callPackage catbus-wakeonlan {};
-      catbus-web-ui    = pkgs.callPackage catbus-web-ui    {};
+      catbus-lifx            = pkgs.callPackage catbus-lifx            {};
+      catbus-networkpresence = pkgs.callPackage catbus-networkpresence {};
+      catbus-snapcast        = pkgs.callPackage catbus-snapcast        {};
+      catbus-wakeonlan       = pkgs.callPackage catbus-wakeonlan       {};
+      catbus-web-ui          = pkgs.callPackage catbus-web-ui          {};
 
       dlnatoad = pkgs.callPackage ./dlnatoad {};
 
