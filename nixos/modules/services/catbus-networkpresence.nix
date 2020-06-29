@@ -3,7 +3,7 @@ with lib;
 
 let
 
-  cfg = config.eth.services.catbus-observer-networkpresence;
+  cfg = config.eth.services.catbus-networkpresence;
 
   configJSON = pkgs.writeText "config.json" (builtins.toJSON {
     mqttBroker = cfg.mqttBroker;
@@ -12,7 +12,7 @@ let
 
 in {
 
-  options.eth.services.catbus-observer-networkpresence = {
+  options.eth.services.catbus-networkpresence = {
 
     enable = mkEnableOption "Whether to enable the Catbus network-presence observer";
 
@@ -54,11 +54,11 @@ in {
     assertions = [
       {
         assertion = cfg.interface != "";
-        message = "must set config.eth.services.catbus-observer-networkpresence.interface";
+        message = "must set config.eth.services.catbus-networkpresence.interface";
       }
     ];
 
-    systemd.services.catbus-observer-networkpresence = {
+    systemd.services.catbus-networkpresence-observer = {
       enable = true;
       description = "Detect devices on the network to publish to Catbus";
       wants = [ "network.target" ];

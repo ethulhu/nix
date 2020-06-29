@@ -5,10 +5,10 @@
   ./overlays.nix
   ./programs/dwm.nix
   ./services/ambience.nix
-  ./services/catbus-actuator-wakeonlan.nix
   ./services/catbus-lgtv.nix
-  ./services/catbus-observer-networkpresence.nix
+  ./services/catbus-networkpresence.nix
   ./services/catbus-snapcast.nix
+  ./services/catbus-wakeonlan.nix
   ./services/dlnatoad.nix
   ./services/helix-directory-jackalope.nix
   ./services/helix-directory.nix

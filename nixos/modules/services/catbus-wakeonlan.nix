@@ -3,7 +3,7 @@ with lib;
 
 let
 
-  cfg = config.eth.services.catbus-actuator-wakeonlan;
+  cfg = config.eth.services.catbus-wakeonlan;
 
   configJSON = pkgs.writeText "config.json" (builtins.toJSON {
     mqttBroker = cfg.mqttBroker;
@@ -12,7 +12,7 @@ let
 
 in {
 
-  options.eth.services.catbus-actuator-wakeonlan = {
+  options.eth.services.catbus-wakeonlan = {
 
     enable = mkEnableOption "Whether to enable the Catbus Wake-On-LAN actuator";
 
@@ -44,7 +44,7 @@ in {
 
 
   config = mkIf cfg.enable {
-    systemd.services.catbus-actuator-wakeonlan = {
+    systemd.services.catbus-wakeonlan-actuator = {
       enable = true;
       description = "Power devices on using Wake-On-LAN via Catbus";
       wants = [ "network.target" ];
