@@ -42,7 +42,7 @@ in {
 
 
   config = mkIf cfg.enable {
-    systemd.services.catbus-snapcast-bridge = {
+    systemd.services.catbus-snapcast-actuator = {
       enable = true;
       description = "Control Snapcast via Catbus";
       wants = [ "network.target" ];
@@ -51,7 +51,26 @@ in {
       serviceConfig = {
         DynamicUser = true;
 
-        ExecStart = "${pkgs.eth.catbus-snapcast}/bin/catbus-bridge-snapcast --config-path ${configJSON}";
+        ExecStart = "${pkgs.eth.catbus-snapcast}/bin/catbus-snapcast-actuator --config-path ${configJSON}";
+
+        NoNewPrivileges = true;
+        ProtectKernelTunables = true;
+        ProtectControlGroups = true;
+        ProtectKernelModules = true;
+        RestrictAddressFamilies = "AF_INET AF_INET6";
+        RestrictNamespaces = true;
+      };
+    };
+    systemd.services.catbus-snapcast-observer = {
+      enable = true;
+      description = "Observe Snapcast for Catbus";
+      wants = [ "network.target" ];
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        DynamicUser = true;
+
+        ExecStart = "${pkgs.eth.catbus-snapcast}/bin/catbus-snapcast-observer --config-path ${configJSON}";
 
         NoNewPrivileges = true;
         ProtectKernelTunables = true;
