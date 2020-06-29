@@ -8,7 +8,12 @@ let
   configJSON = pkgs.writeText "config.json" (builtins.toJSON {
     mqttBroker = "tcp://${cfg.mqttBroker.host}:${toString cfg.mqttBroker.port}";
     apps = cfg.apps;
-    topics = cfg.topics;
+    topics = {
+      app = cfg.topics.input;
+      appValues = cfg.topics.inputValues;
+      power = cfg.topics.power;
+      volume = cfg.topics.volume;
+    };
     tv = cfg.tv;
   });
 
@@ -47,12 +52,12 @@ in {
     };
 
     topics = {
-      app = mkOption {
+      input = mkOption {
         type = types.str;
         description = "MQTT topic for controlling the TV's app";
         example = "home/living-room/tv/app_enum";
       };
-      appValues = mkOption {
+      inputValues = mkOption {
         type = types.str;
         description = "MQTT topic for exporting the TV's apps";
         example = "home/living-room/tv/app_enum/values";

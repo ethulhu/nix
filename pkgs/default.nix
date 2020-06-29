@@ -1,7 +1,7 @@
 let
   catbus-lgtv = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-lgtv";
-    rev = "6184414321f7f633dbb71cf70ed336e1c42d9d9e";
+    rev = "356f828f055c1d26a8a865a641233569aa24e92c";
   };
   catbus-lifx = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-lifx";
@@ -17,7 +17,7 @@ let
   };
   catbus-wakeonlan = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-wakeonlan";
-    rev = "54d24cbc56c012f30de902c2746899ffbf9154eb";
+    rev = "748a39954903f9931e2d43d445f1cdae0da15a02";
   };
   catbus-web-ui = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-web-ui";
