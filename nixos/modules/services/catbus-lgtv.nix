@@ -3,7 +3,7 @@ with lib;
 
 let
 
-  cfg = config.eth.services.catbus-actuator-lgtv;
+  cfg = config.eth.services.catbus-lgtv;
 
   configJSON = pkgs.writeText "config.json" (builtins.toJSON {
     mqttBroker = "tcp://${cfg.mqttBroker.host}:${toString cfg.mqttBroker.port}";
@@ -19,9 +19,9 @@ let
 
 in {
 
-  options.eth.services.catbus-actuator-lgtv = {
+  options.eth.services.catbus-lgtv = {
 
-    enable = mkEnableOption "Whether to enable the Catbus WebOS LGTV actuator";
+    enable = mkEnableOption "Whether to enable the Catbus WebOS LGTV daemons.";
 
     mqttBroker = {
       host = mkOption {
@@ -83,7 +83,7 @@ in {
 
 
   config = mkIf cfg.enable {
-    systemd.services.catbus-actuator-lgtv = {
+    systemd.services.catbus-lgtv-actuator = {
       enable = true;
       description = "Control a WebOS LGTV via Catbus";
       wants = [ "network.target" ];
@@ -93,6 +93,26 @@ in {
         DynamicUser = true;
 
         ExecStart = "${pkgs.eth.catbus-lgtv}/bin/catbus-actuator-lgtv --config-path ${configJSON}";
+
+        NoNewPrivileges = true;
+        ProtectKernelTunables = true;
+        ProtectControlGroups = true;
+        ProtectKernelModules = true;
+        RestrictAddressFamilies = "AF_INET AF_INET6";
+        RestrictNamespaces = true;
+      };
+    };
+
+    systemd.services.catbus-lgtv-observer = {
+      enable = true;
+      description = "Observe a WebOS LGTV via Catbus";
+      wants = [ "network.target" ];
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        DynamicUser = true;
+
+        ExecStart = "${pkgs.eth.catbus-lgtv}/bin/catbus-observer-lgtv --config-path ${configJSON}";
 
         NoNewPrivileges = true;
         ProtectKernelTunables = true;
