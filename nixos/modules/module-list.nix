@@ -6,9 +6,9 @@
   ./programs/dwm.nix
   ./services/ambience.nix
   ./services/catbus-actuator-wakeonlan.nix
-  ./services/catbus-bridge-snapcast.nix
   ./services/catbus-lgtv.nix
   ./services/catbus-observer-networkpresence.nix
+  ./services/catbus-snapcast.nix
   ./services/dlnatoad.nix
   ./services/helix-directory-jackalope.nix
   ./services/helix-directory.nix

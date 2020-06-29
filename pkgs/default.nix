@@ -13,7 +13,7 @@ let
   };
   catbus-snapcast = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-snapcast";
-    # TODO: rev = "...";
+    rev = "74b35c929a1f6d80b0cdab57e4fb9fba26d9e2d1";
   };
   catbus-wakeonlan = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-wakeonlan";
