@@ -6,7 +6,7 @@ let
   cfg = config.eth.services.catbus-actuator-wakeonlan;
 
   configJSON = pkgs.writeText "config.json" (builtins.toJSON {
-    mqttBroker = "tcp://${cfg.mqttBroker.host}:${toString cfg.mqttBroker.port}";
+    mqttBroker = cfg.mqttBroker;
     devices = cfg.devices;
   });
 
@@ -16,17 +16,10 @@ in {
 
     enable = mkEnableOption "Whether to enable the Catbus Wake-On-LAN actuator";
 
-    mqttBroker = {
-      host = mkOption {
-        type = types.str;
-        description = "Host of the MQTT broker.";
-        example = "localhost";
-      };
-      port = mkOption {
-        type = types.int;
-        description = "Port of the MQTT broker.";
-        default = 1883;
-      };
+    mqttBroker = mkOption {
+      type = types.str;
+      description = "URL of the MQTT broker.";
+      example = "tcp://broker.local:1883";
     };
 
     devices = mkOption {
