@@ -85,7 +85,7 @@ in {
       serviceConfig = {
         DynamicUser = true;
 
-        ExecStart = "${pkgs.eth.catbus-lgtv}/bin/catbus-actuator-lgtv --config-path ${configJSON}";
+        ExecStart = "${pkgs.eth.catbus-lgtv}/bin/catbus-lgtv-actuator --config-path ${configJSON}";
 
         NoNewPrivileges = true;
         ProtectKernelTunables = true;
@@ -105,7 +105,7 @@ in {
       serviceConfig = {
         DynamicUser = true;
 
-        ExecStart = "${pkgs.eth.catbus-lgtv}/bin/catbus-observer-lgtv --config-path ${configJSON}";
+        ExecStart = "${pkgs.eth.catbus-lgtv}/bin/catbus-lgtv-observer --config-path ${configJSON}";
 
         NoNewPrivileges = true;
         ProtectKernelTunables = true;

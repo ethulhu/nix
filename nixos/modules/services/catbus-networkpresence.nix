@@ -68,7 +68,7 @@ in {
         DynamicUser = true;
         AmbientCapabilities = "CAP_NET_RAW CAP_NET_ADMIN";
 
-        ExecStart = "${pkgs.eth.catbus-networkpresence}/bin/catbus-observer-networkpresence --config-path ${configJSON} --interface ${cfg.interface}";
+        ExecStart = "${pkgs.eth.catbus-networkpresence}/bin/catbus-networkpresence-observer --config-path ${configJSON} --interface ${cfg.interface}";
 
         NoNewPrivileges = true;
         ProtectKernelTunables = true;

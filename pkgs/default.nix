@@ -1,19 +1,19 @@
 let
   catbus-lgtv = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-lgtv";
-    rev = "356f828f055c1d26a8a865a641233569aa24e92c";
+    rev = "b12b79b9dc40b8323bd1c010249cb2c34fc6a35e";
   };
   catbus-lifx = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-lifx";
-    rev = "8f9c4193e08929cbbd8c85b2cbb2bbd22f55ccfa";
+    rev = "4dbe33adb0dcab0c40ab4da3425b490e48f61a4c";
   };
   catbus-networkpresence = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-networkpresence";
-    rev = "da8002ab10174ccdbbd1718069b7de36afe2dc46";
+    rev = "2616ec74d18d9f04153328c8d94e3a573aac296f";
   };
   catbus-snapcast = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-snapcast";
-    rev = "841ab669dad089948834aa7c93deee726f3a4b70";
+    rev = "e0bf070ad4d9123de58589f6cc2f8c223c3929d7";
   };
   catbus-wakeonlan = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-wakeonlan";
