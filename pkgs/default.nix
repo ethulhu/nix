@@ -17,7 +17,7 @@ let
   };
   catbus-wakeonlan = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-wakeonlan";
-    rev = "748a39954903f9931e2d43d445f1cdae0da15a02";
+    rev = "e3566b5fd2a862fee38eeeafc9d5174e0a00f484";
   };
   catbus-web-ui = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-web-ui";

@@ -53,7 +53,7 @@ in {
       serviceConfig = {
         DynamicUser = true;
 
-        ExecStart = "${pkgs.eth.catbus-wakeonlan}/bin/catbus-actuator-wakeonlan --config-path ${configJSON}";
+        ExecStart = "${pkgs.eth.catbus-wakeonlan}/bin/catbus-wakeonlan-actuator --config-path ${configJSON}";
 
         NoNewPrivileges = true;
         ProtectKernelTunables = true;
