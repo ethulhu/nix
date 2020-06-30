@@ -6,6 +6,7 @@
   ./programs/dwm.nix
   ./services/ambience.nix
   ./services/catbus-lgtv.nix
+  ./services/catbus-lifx.nix
   ./services/catbus-networkpresence.nix
   ./services/catbus-snapcast.nix
   ./services/catbus-wakeonlan.nix
