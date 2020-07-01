@@ -2,6 +2,7 @@
   ./hardware/keyboard.nix
   ./hardware/linode.nix
   ./hardware/yubikey.nix
+  ./location.nix
   ./nix.nix
   ./programs/dwm.nix
   ./services/ambience.nix
