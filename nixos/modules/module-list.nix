@@ -6,6 +6,7 @@
   ./location.nix
   ./nix.nix
   ./programs/dwm.nix
+  ./programs/steam.nix
   ./services/ambience.nix
   ./services/catbus-lgtv.nix
   ./services/catbus-lifx.nix
