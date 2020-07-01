@@ -16,18 +16,15 @@ in {
     enable = mkEnableOption "Whether to enable helix-player";
 
     socket = mkOption {
-      type = types.str;
+      type = types.path;
       readOnly = true;
       description = "Path of the UNIX socket to listen on.";
-      example = socket;
+      default = socket;
     };
   };
 
 
   config = mkIf cfg.enable {
-
-    eth.services.helix-player.socket = socket;
-
     systemd.services.helix-player = {
       enable = true;
       description = "Helix UPnP player & controller";
