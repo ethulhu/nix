@@ -13,12 +13,18 @@ in {
       default = false;
       description = "Whether to allow password authentication. Occasionally useful, used sparingly.";
     };
+
+    sshAgentAuth = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Whether to enable sudo authentication using ssh-agent.";
+    };
   };
 
   config = mkIf cfg.enable {
 
-    security.pam.enableSSHAgentAuth = true;
-    security.pam.services.sudo.sshAgentAuth = true;
+    security.pam.enableSSHAgentAuth = cfg.sshAgentAuth;
+    security.pam.services.sudo.sshAgentAuth = cfg.sshAgentAuth;
 
     services.openssh = {
       enable = true;
