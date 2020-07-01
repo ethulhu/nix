@@ -1,6 +1,7 @@
 [
   ./hardware/keyboard.nix
   ./hardware/linode.nix
+  ./hardware/touchpad.nix
   ./hardware/yubikey.nix
   ./location.nix
   ./nix.nix
