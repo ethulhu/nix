@@ -8,6 +8,7 @@ let
     home-manager
 
     ag
+    direnv
     dnsutils
     file
     go
