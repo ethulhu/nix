@@ -2,7 +2,7 @@
   ./hardware/keyboard.nix
   ./hardware/linode.nix
   ./hardware/yubikey.nix
-  ./overlays.nix
+  ./nix.nix
   ./programs/dwm.nix
   ./services/ambience.nix
   ./services/catbus-lgtv.nix
