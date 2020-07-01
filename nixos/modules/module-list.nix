@@ -9,6 +9,7 @@
   ./programs/steam.nix
   ./services/ambience.nix
   ./services/catbus-lgtv.nix
+  ./sites/cgit.nix
   ./sites/go.nix
   ./services/catbus-lifx.nix
   ./services/catbus-networkpresence.nix
