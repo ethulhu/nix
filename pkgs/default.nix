@@ -35,12 +35,18 @@ let
     url = "https://github.com/ethulhu/recipes.eth.moe";
     rev = "9c370bf0cd6a06bbcfa17e3c1f42f6ac6f92ffdb";
   };
+  website-personal = builtins.fetchGit {
+    url = "https://git.eth.moe/website-personal";
+    rev = "b1e6491f77421ae4623391a7f53af7f3e6c13f34";
+  };
 in
   pkgs: super: {
     eth = {
       helix     = pkgs.callPackage helix     {};
       jackalope = pkgs.callPackage jackalope {};
       recipes   = pkgs.callPackage recipes   {};
+
+      website-personal = pkgs.callPackage website-personal {};
 
       dwm = pkgs.callPackage ./dwm {};
 
