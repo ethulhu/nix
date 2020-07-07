@@ -5,7 +5,7 @@ let
   };
   catbus-lifx = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-lifx";
-    rev = "4dbe33adb0dcab0c40ab4da3425b490e48f61a4c";
+    rev = "a31ff5375ad19d9f109cfff3634d379e12c48fa7";
   };
   catbus-networkpresence = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-networkpresence";
