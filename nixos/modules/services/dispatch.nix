@@ -36,33 +36,32 @@ in {
                   example = "/gitolite-repo-updated";
                 };
                 formValues = mkOption {
-                  type = types.attrsOf types.str;
+                  type = types.nullOr (types.attrsOf types.str);
                   example = {
                     repo = "catbus-web-ui";
                   };
-                  default = {};
+                  default = null;
                 };
               };
             });
-            default = [];
           };
           actions = mkOption {
-            type = types.listOf (types.submodule {
+            type = types.nullOr (types.listOf (types.submodule {
               options = {
                 url = mkOption {
                   type = types.str;
                   example = "https://build.eth.moe/deploy";
                 };
                 formValues = mkOption {
-                  type = types.attrsOf types.str;
+                  type = types.nullOr (types.attrsOf types.str);
                   example = {
                     project = "catbus-web-ui";
                   };
-                  default = {};
+                  default = null;
                 };
               };
-            });
-            default = [];
+            }));
+            default = null;
           };
         };
       });
