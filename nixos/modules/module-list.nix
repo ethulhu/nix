@@ -10,12 +10,10 @@
   ./services/ambience.nix
   ./services/catbus-lgtv.nix
   ./services/catbus-lifx.nix
-  ./sites/cgit.nix
-  ./sites/go.nix
-  ./sites/recipes.nix
   ./services/catbus-networkpresence.nix
   ./services/catbus-snapcast.nix
   ./services/catbus-wakeonlan.nix
+  ./services/dispatch.nix
   ./services/dlnatoad.nix
   ./services/helix-directory-jackalope.nix
   ./services/helix-directory.nix
@@ -24,5 +22,8 @@
   ./services/snapclient.nix
   ./services/ssh.nix
   ./services/upmpdcli.nix
+  ./sites/cgit.nix
+  ./sites/go.nix
+  ./sites/recipes.nix
   ./users/eth.nix
 ]

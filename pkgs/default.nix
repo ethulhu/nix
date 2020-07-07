@@ -23,6 +23,10 @@ let
     url = "https://github.com/ethulhu/catbus-web-ui";
     # TODO: rev = "...";
   };
+  dispatch = builtins.fetchGit {
+    url = "https://git.eth.moe/dispatch";
+    rev = "530fc42f37eb17e3638f6aef055da77847e20dfa";
+  };
   helix = builtins.fetchGit {
     url = "https://github.com/ethulhu/helix";
     rev = "b64bdc80c3c994f22a28599747897aa5de3ada93";
@@ -42,6 +46,7 @@ let
 in
   pkgs: super: {
     eth = {
+      dispatch  = pkgs.callPackage dispatch  {};
       helix     = pkgs.callPackage helix     {};
       jackalope = pkgs.callPackage jackalope {};
       recipes   = pkgs.callPackage recipes   {};
