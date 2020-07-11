@@ -11,13 +11,17 @@ let
     direnv
     dnsutils
     file
+    git
+    gitAndTools.tig
     go
     htop
     iotop
     killall
     moreutils
     mosh
+    python3
     rlwrap
+    screen
     tmux
     unzip
     vim
@@ -25,50 +29,10 @@ let
     zip
   ];
 
-  developmentPackages = with pkgs; [
-    direnv
-    entr
-    git
-    gitAndTools.tig
-    goimports
-    html-tidy
-    imagemagick
-    jq
-    latest.rustChannels.stable.rust
-    nix-prefetch-git
-    pre-commit
-    python3
-    screen
-  ];
-
-  guiPackages = with pkgs; [
-    chromium
-    feh
-    firefox
-    mpv
-    mupdf
-    rxvt-unicode
-    vlc
-    wl-clipboard
-  ];
-
 in {
 
   options.eth.users.eth = {
     enable = mkEnableOption "Create the user eth";
-
-    packages = {
-      development = mkOption {
-        type = types.bool;
-        default = false;
-        description = "install development packages (Go, Git, etc)";
-      };
-      gui = mkOption {
-        type = types.bool;
-        default = false;
-        description = "install GUI packages (Firefox, VLC, etc)";
-      };
-    };
 
     extraPackages = mkOption {
        type = types.listOf types.package;
@@ -86,9 +50,7 @@ in {
 
       shell = pkgs.fish;
 
-      packages = defaultPackages ++ cfg.extraPackages
-        ++ (if cfg.packages.development then developmentPackages else [])
-        ++ (if cfg.packages.gui         then guiPackages else []);
+      packages = defaultPackages ++ cfg.extraPackages;
 
       openssh.authorizedKeys.keys = [
         "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqcW3HzqQxPUjZteAs5HmDbCEAtHcThnj7qfJacEXBmpO5srinU3mhV/EhrqcAMkEoEIS2az2uQQEsF13nEqDD1uZh/Q7qwEnZepzElgBOIToQ+Np2qziRExV3ROBddJfmD3XBTPc7wA5BohYku+eCsfR37ZrRTgKUIALhZ4MSRxgQqnhtgaxHpL2Nk6ZdxRHO1ISlcmiWhOETP0fj76zN4+CgSv4rkPdYxKYpWVT8XTdKgu6ENbAPbOBzplui9MmrdS17ZaWy0KrKCiyMjhA5qSsOxWLXKL9P8lRuuXkWAl5cpt3vWWKAOzlLV1UCUbtlBblyH2KkeIKfO8AC45wX keychain@eth.moe"
