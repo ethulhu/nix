@@ -12,6 +12,15 @@
     locations = {
       "/" = {
         root = root;
+        extraConfig = ''
+          if ($request_uri ~ ^/(.*)\.html$) {
+            return 302 /$1;
+          }
+          if ($request_uri ~ ^/(.*)/$) {
+            return 302 /$1;
+          }
+          try_files $uri $uri.$extension $uri/ =404;
+        '';
       };
     };
   };
