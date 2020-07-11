@@ -29,7 +29,7 @@ let
   };
   helix = builtins.fetchGit {
     url = "https://github.com/ethulhu/helix";
-    rev = "b64bdc80c3c994f22a28599747897aa5de3ada93";
+    rev = "dd0eff23f0329b7baa88bee8de4908ea044f5801";
   };
   jackalope = builtins.fetchGit {
     url = "https://git.sr.ht/~eth/jackalope";
