@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-{
+rec {
   catbus-web-ui = pkgs.callPackage ./catbus-web-ui.nix {};
   cgit          = pkgs.callPackage ./cgit.nix {};
   go-packages   = pkgs.callPackage ./go-packages.nix {};
@@ -37,9 +37,10 @@
 
   proxySocket = socketPath: {
     locations = {
-      "/" = {
-        proxyPass = "http://unix:/${socketPath}";
-      };
+      "/" = proxyLocationSocket socketPath;
     };
+  };
+  proxyLocationSocket = socketPath: {
+    proxyPass = "http://unix:${socketPath}";
   };
 }
