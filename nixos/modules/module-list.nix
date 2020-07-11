@@ -22,8 +22,5 @@
   ./services/snapclient.nix
   ./services/ssh.nix
   ./services/upmpdcli.nix
-  ./sites/cgit.nix
-  ./sites/go.nix
-  ./sites/recipes.nix
   ./users/eth.nix
 ]
