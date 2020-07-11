@@ -5,7 +5,7 @@
   cgit          = pkgs.callPackage ./cgit.nix {};
   go-packages   = pkgs.callPackage ./go-packages.nix {};
 
-  https = site: site // {
+  https = {
     forceSSL = true;
     enableACME = true;
   };
