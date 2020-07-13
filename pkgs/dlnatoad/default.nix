@@ -15,20 +15,16 @@ in stdenv.mkDerivation rec {
     sha256 = "060360q4n3li773rviq8ab1931l0gfk5w9dqpc0711prng5ywqy4";
   };
 
-  nativeBuildInputs = [
-    maven
-  ];
   buildInputs = [
-    jre
+    maven
     makeWrapper
   ];
 
-  pomFileDir = "dlnatoad/";
   mavenDependenciesSHA256 = "1ly6xyhyal98pbwilx23rib3vkl2q9d0wpkrxhw12gzw1417kmxp";
 
   fetchedMavenDeps = stdenv.mkDerivation {
     name = "dlnatoad-${version}-maven-deps";
-    inherit src nativeBuildInputs;
+    inherit src buildInputs;
     buildPhase = ''
       mvn \
         --threads $NIX_BUILD_CORES \
@@ -59,7 +55,7 @@ in stdenv.mkDerivation rec {
     mkdir -p $out/bin
     mkdir -p $out/share/java
     cp target/${snapshotJar} $out/share/java
-    makeWrapper ${pkgs.jre_headless}/bin/java $out/bin/dlnatoad \
+    makeWrapper ${pkgs.jdk}/bin/java $out/bin/dlnatoad \
       --add-flags "-jar $out/share/java/${snapshotJar}"
   '';
 }
