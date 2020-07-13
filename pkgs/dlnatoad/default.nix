@@ -11,8 +11,8 @@ in stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "haku";
     repo = "dlnatoad";
-    rev = "837e801b8da5726f25e73a4fd70c991eccc942c5";
-    sha256 = "060360q4n3li773rviq8ab1931l0gfk5w9dqpc0711prng5ywqy4";
+    rev = "e01cd15a133a44ac068ba39f09bbe989e29b7650";
+    sha256 = "0qwvwvyb03hxnxg3zx7s9bb7sdm0hspbcqhdy4mk6bgjqnzj7d8d";
   };
 
   buildInputs = [

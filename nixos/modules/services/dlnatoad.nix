@@ -12,6 +12,12 @@ in {
   options.eth.services.dlnatoad = {
     enable = mkEnableOption "Whether to enable DLNAtoad";
 
+    interface = mkOption {
+      type = types.str;
+      default = "";
+      description = "Hostname or IP address of interface to bind to.";
+    };
+
     directories = mkOption {
       type = types.listOf types.str;
       default = [];
@@ -34,7 +40,14 @@ in {
 
         CacheDirectory = systemdDirectoryName;
 
-        ExecStart = "${pkgs.eth.dlnatoad}/bin/dlnatoad ${concatStringsSep " " cfg.directories} --db ${cacheDirectory}/db --thumbs ${cacheDirectory} --verbose";
+        ExecStart = ''
+          ${pkgs.eth.dlnatoad}/bin/dlnatoad \
+            ${concatStringsSep " " cfg.directories} \
+            --db ${cacheDirectory}/db \
+            --thumbs ${cacheDirectory} \
+            ${if cfg.interface != "" then "--interface ${cfg.interface}" else ""} \
+            --verbose
+        '';
 
         NoNewPrivileges = true;
         ProtectHome = true;
