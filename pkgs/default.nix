@@ -21,15 +21,15 @@ let
   };
   catbus-web-ui = builtins.fetchGit {
     url = "https://github.com/ethulhu/catbus-web-ui";
-    # TODO: rev = "...";
+    rev = "73d4ae7c21c8f051a7208567339391bae1db4e59";
   };
   dispatch = builtins.fetchGit {
     url = "https://git.eth.moe/dispatch";
-    rev = "530fc42f37eb17e3638f6aef055da77847e20dfa";
+    rev = "1254c353241f6afcf3dd958088629d9fe2f5cb75";
   };
   helix = builtins.fetchGit {
     url = "https://github.com/ethulhu/helix";
-    rev = "dd0eff23f0329b7baa88bee8de4908ea044f5801";
+    rev = "9b4832f38dcab40e7e343a152f9a39367b30e70b";
   };
   jackalope = builtins.fetchGit {
     url = "https://git.sr.ht/~eth/jackalope";
