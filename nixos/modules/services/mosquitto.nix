@@ -23,6 +23,8 @@ let
       persistence true
       persistence_location ${stateDirectory}/
     ''}
+
+    ${cfg.extraConfig}
   '';
 
 in {
@@ -62,6 +64,13 @@ in {
       };
     };
 
+    extraConfig = mkOption {
+      type = types.str;
+      description = "Config to append to the generated config.";
+      example = ''
+        log_type all
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
