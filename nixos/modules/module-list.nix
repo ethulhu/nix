@@ -24,5 +24,6 @@
   ./services/snapclient.nix
   ./services/ssh.nix
   ./services/upmpdcli.nix
+  ./services/youtube-dl.nix
   ./users/eth.nix
 ]
