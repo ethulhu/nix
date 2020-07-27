@@ -20,6 +20,7 @@
   ./services/helix-directory.nix
   ./services/helix-player.nix
   ./services/mosquitto.nix
+  ./services/pushover.nix
   ./services/snapclient.nix
   ./services/ssh.nix
   ./services/upmpdcli.nix
