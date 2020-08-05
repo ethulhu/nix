@@ -41,7 +41,7 @@ let
   };
   website-personal = builtins.fetchGit {
     url = "https://git.eth.moe/website-personal";
-    rev = "b1e6491f77421ae4623391a7f53af7f3e6c13f34";
+    rev = "e639dd61eaa5f1779a649318a05e5b659a0233f8";
   };
 in
   pkgs: super: {
