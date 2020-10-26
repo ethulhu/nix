@@ -37,11 +37,15 @@ let
   };
   recipes = builtins.fetchGit {
     url = "https://github.com/ethulhu/recipes.eth.moe";
-    rev = "9c370bf0cd6a06bbcfa17e3c1f42f6ac6f92ffdb";
+    rev = "62148d9a64a5219816138ff5a93549a9e766627b";
+  };
+  website-moji= builtins.fetchGit {
+    url = "https://git.eth.moe/moji";
+    rev = "4d18ecdb2ccd8776eab3f5d6da8804b93c44d7be";
   };
   website-personal = builtins.fetchGit {
     url = "https://git.eth.moe/website-personal";
-    rev = "7e1ffeff0e2aa32665aaaebb7dfa70e1c56a432a";
+    rev = "91762dff3488765d8c1713b8bb4454a8cfaf8387";
   };
 in
   pkgs: super: {
@@ -51,6 +55,7 @@ in
       jackalope = pkgs.callPackage jackalope {};
       recipes   = pkgs.callPackage recipes   {};
 
+      website-moji     = pkgs.callPackage website-moji {};
       website-personal = pkgs.callPackage website-personal {};
 
       dwm = pkgs.callPackage ./dwm {};
