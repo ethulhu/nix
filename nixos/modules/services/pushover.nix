@@ -80,13 +80,13 @@ in {
           };
         };
       });
-    };
-    example = {
-      "eat dinner" = {
-        enable = true;
-        message = "food is good for you";
-        schedule = "daily 18:30";
-        delayUpTo = "1h";
+      example = {
+        "eat dinner" = {
+          enable = true;
+          message = "food is good for you";
+          schedule = "daily 18:30";
+          delayUpTo = "1h";
+        };
       };
     };
   };
