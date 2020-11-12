@@ -5,8 +5,6 @@ let
   cfg = config.eth.users.eth;
 
   defaultPackages = with pkgs; [
-    home-manager
-
     ag
     direnv
     dnsutils
